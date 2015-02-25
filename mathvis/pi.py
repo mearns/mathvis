@@ -55,12 +55,15 @@ def digits_of_pi(filename):
 if __name__ == '__main__':
     import random
 
-    #digits = digits_of_pi(r'data\pi\100_000.txt')
-    digits = [random.randint(1, 10) for i in xrange(100000)]
-    i = 0
-    for a, b in adjacent_pairs(digits_of_pi(r'data\pi\100_000.txt'), 4):
-        print a, b
-        i += 1
-        if i >= 1000:
-            break
+    w = 4
+    pi_digits = adjacent_pairs(digits_of_pi(r'data\pi\100_000.txt'), w)
+    rand_digits = adjacent_pairs((random.randint(0, 9) for i in xrange(100000)), w)
+    try:
+        for i in xrange(10000):
+            pa, pb = pi_digits.next()
+            ra, rb = rand_digits.next()
+            print pa, pb, ra, rb
+    except StopIteration:
+        pass
+
 
