@@ -1,6 +1,9 @@
 # #Vim files
 *.sw[mnop]
 
+#Output files
+res_*.dat
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
